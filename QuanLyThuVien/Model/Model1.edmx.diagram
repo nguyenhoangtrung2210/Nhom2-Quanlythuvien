@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="36d7889cf2dd4fcbb9d0752e5f0c9ef3" Name="Diagram1">
+        <EntityTypeShape EntityType="QLThuVienModel.CTPhieuMuon" Width="1.5" PointX="8.25" PointY="3.25" />
+        <EntityTypeShape EntityType="QLThuVienModel.DocGia" Width="1.5" PointX="3.75" PointY="11.125" />
+        <EntityTypeShape EntityType="QLThuVienModel.NgonNgu" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="QLThuVienModel.NhanVien" Width="1.5" PointX="6" PointY="7.5" />
+        <EntityTypeShape EntityType="QLThuVienModel.NXB" Width="1.5" PointX="0.75" PointY="10" />
+        <EntityTypeShape EntityType="QLThuVienModel.PhieuMuon" Width="1.5" PointX="6" PointY="11" />
+        <EntityTypeShape EntityType="QLThuVienModel.PhieuTra" Width="1.5" PointX="5.25" PointY="2.875" />
+        <EntityTypeShape EntityType="QLThuVienModel.Sach" Width="1.5" PointX="3" PointY="2.375" />
+        <EntityTypeShape EntityType="QLThuVienModel.sysdiagram" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="QLThuVienModel.TacGia" Width="1.5" PointX="0.75" PointY="12.375" />
+        <EntityTypeShape EntityType="QLThuVienModel.ThamSo" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QLThuVienModel.TheLoai" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="QLThuVienModel.UserRole" Width="1.5" PointX="8.75" PointY="7.25" />
+        <EntityTypeShape EntityType="QLThuVienModel.User" Width="1.5" PointX="11" PointY="6.875" />
+        <EntityTypeShape EntityType="QLThuVienModel.ViTri" Width="1.5" PointX="0.75" PointY="7.25" />
+        <AssociationConnector Association="QLThuVienModel.FK__CTPhieuMu__MaSac__2BFE89A6" />
+        <AssociationConnector Association="QLThuVienModel.FK__CTPhieuMuo__MaNV__2CF2ADDF" />
+        <AssociationConnector Association="QLThuVienModel.FK__CTPhieuMuon__2B0A656D" />
+        <AssociationConnector Association="QLThuVienModel.FK__PhieuMuon__MaDG__01142BA1" />
+        <AssociationConnector Association="QLThuVienModel.FK__Sach__MaNN__2B3F6F97" />
+        <AssociationConnector Association="QLThuVienModel.FK__PhieuMuon__MaNV__02084FDA" />
+        <AssociationConnector Association="QLThuVienModel.FK__PhieuTra__MaNV__0B91BA14" />
+        <AssociationConnector Association="QLThuVienModel.FK__Sach__MaNXB__2E1BDC42" />
+        <AssociationConnector Association="QLThuVienModel.FK__PhieuTra__0A9D95DB" />
+        <AssociationConnector Association="QLThuVienModel.FK__PhieuTra__MaSach__0C85DE4D" />
+        <AssociationConnector Association="QLThuVienModel.FK__Sach__MaTG__2D27B809" />
+        <AssociationConnector Association="QLThuVienModel.FK__Sach__MaTL__2A4B4B5E" />
+        <AssociationConnector Association="QLThuVienModel.FK__Sach__MaVT__2C3393D0" />
+        <AssociationConnector Association="QLThuVienModel.FK__Users__MaUR__5165187F" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

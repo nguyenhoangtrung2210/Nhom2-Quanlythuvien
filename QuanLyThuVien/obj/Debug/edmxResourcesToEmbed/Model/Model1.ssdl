@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLThuVienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CTPhieuMuon">
+    <Key>
+      <PropertyRef Name="MaPM" />
+    </Key>
+    <Property Name="MaPM" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="MaSach" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="MaDG" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="NgayMuon" Type="date" />
+    <Property Name="NgayTra" Type="date" />
+    <Property Name="MaNV" Type="nvarchar" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocGia">
+    <Key>
+      <PropertyRef Name="MaDG" />
+    </Key>
+    <Property Name="MaDG" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="TenDG" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NamSinh" Type="date" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SDT" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NgonNgu">
+    <Key>
+      <PropertyRef Name="MaNN" />
+    </Key>
+    <Property Name="MaNN" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TenNN" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="TenNV" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NamSinh" Type="date" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SDT" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NXB">
+    <Key>
+      <PropertyRef Name="MaNXB" />
+    </Key>
+    <Property Name="MaNXB" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="TenNXB" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PhieuMuon">
+    <Key>
+      <PropertyRef Name="MaPM" />
+      <PropertyRef Name="NgayMuon" />
+    </Key>
+    <Property Name="MaPM" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="MaDG" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="NgayMuon" Type="date" Nullable="false" />
+    <Property Name="MaNV" Type="nvarchar" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PhieuTra">
+    <Key>
+      <PropertyRef Name="MaPT" />
+    </Key>
+    <Property Name="MaPT" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="MaPM" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="MaSach" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="MaNV" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="NgayMuon" Type="date" Nullable="false" />
+    <Property Name="NgayTra" Type="date" />
+    <Property Name="PhatHuHong" Type="money" />
+    <Property Name="PhatQuaHan" Type="money" />
+    <Property Name="ThanhToan" Type="money" />
+  </EntityType>
+  <EntityType Name="Sach">
+    <Key>
+      <PropertyRef Name="MaSach" />
+    </Key>
+    <Property Name="MaSach" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="TenSach" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NoiDung" Type="nvarchar(max)" />
+    <Property Name="MaTL" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="MaVT" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="MaTG" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="MaNXB" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="NamXB" Type="int" />
+    <Property Name="MaNN" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SoTrang" Type="int" />
+    <Property Name="SoLuong" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TacGia">
+    <Key>
+      <PropertyRef Name="MaTG" />
+    </Key>
+    <Property Name="MaTG" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="TenTG" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ThamSo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="GiaTri" Type="nvarchar" MaxLength="8" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="TheLoai">
+    <Key>
+      <PropertyRef Name="MaTL" />
+    </Key>
+    <Property Name="MaTL" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="TenTL" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="IdRole" />
+    </Key>
+    <Property Name="IdRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DisplayName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DisplayName" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="IdRole" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ViTri">
+    <Key>
+      <PropertyRef Name="MaVT" />
+    </Key>
+    <Property Name="MaVT" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="TenKhu" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TenKe" Type="nvarchar(max)" />
+    <Property Name="TenNgan" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK__CTPhieuMu__MaSac__2BFE89A6">
+    <End Role="Sach" Type="Self.Sach" Multiplicity="1" />
+    <End Role="CTPhieuMuon" Type="Self.CTPhieuMuon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sach">
+        <PropertyRef Name="MaSach" />
+      </Principal>
+      <Dependent Role="CTPhieuMuon">
+        <PropertyRef Name="MaSach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CTPhieuMuo__MaNV__2CF2ADDF">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="CTPhieuMuon" Type="Self.CTPhieuMuon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="CTPhieuMuon">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CTPhieuMuon__2B0A656D">
+    <End Role="PhieuMuon" Type="Self.PhieuMuon" Multiplicity="0..1" />
+    <End Role="CTPhieuMuon" Type="Self.CTPhieuMuon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuMuon">
+        <PropertyRef Name="MaPM" />
+        <PropertyRef Name="NgayMuon" />
+      </Principal>
+      <Dependent Role="CTPhieuMuon">
+        <PropertyRef Name="MaPM" />
+        <PropertyRef Name="NgayMuon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhieuMuon__MaDG__01142BA1">
+    <End Role="DocGia" Type="Self.DocGia" Multiplicity="1" />
+    <End Role="PhieuMuon" Type="Self.PhieuMuon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocGia">
+        <PropertyRef Name="MaDG" />
+      </Principal>
+      <Dependent Role="PhieuMuon">
+        <PropertyRef Name="MaDG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhieuMuon__MaNV__02084FDA">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="PhieuMuon" Type="Self.PhieuMuon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="PhieuMuon">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhieuTra__0A9D95DB">
+    <End Role="PhieuMuon" Type="Self.PhieuMuon" Multiplicity="1" />
+    <End Role="PhieuTra" Type="Self.PhieuTra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuMuon">
+        <PropertyRef Name="MaPM" />
+        <PropertyRef Name="NgayMuon" />
+      </Principal>
+      <Dependent Role="PhieuTra">
+        <PropertyRef Name="MaPM" />
+        <PropertyRef Name="NgayMuon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhieuTra__MaNV__0B91BA14">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="PhieuTra" Type="Self.PhieuTra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="PhieuTra">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhieuTra__MaSach__0C85DE4D">
+    <End Role="Sach" Type="Self.Sach" Multiplicity="1" />
+    <End Role="PhieuTra" Type="Self.PhieuTra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sach">
+        <PropertyRef Name="MaSach" />
+      </Principal>
+      <Dependent Role="PhieuTra">
+        <PropertyRef Name="MaSach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sach__MaNN__2B3F6F97">
+    <End Role="NgonNgu" Type="Self.NgonNgu" Multiplicity="1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NgonNgu">
+        <PropertyRef Name="MaNN" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="MaNN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sach__MaNXB__2E1BDC42">
+    <End Role="NXB" Type="Self.NXB" Multiplicity="1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NXB">
+        <PropertyRef Name="MaNXB" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="MaNXB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sach__MaTG__2D27B809">
+    <End Role="TacGia" Type="Self.TacGia" Multiplicity="1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TacGia">
+        <PropertyRef Name="MaTG" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="MaTG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sach__MaTL__2A4B4B5E">
+    <End Role="TheLoai" Type="Self.TheLoai" Multiplicity="1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TheLoai">
+        <PropertyRef Name="MaTL" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="MaTL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sach__MaVT__2C3393D0">
+    <End Role="ViTri" Type="Self.ViTri" Multiplicity="1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ViTri">
+        <PropertyRef Name="MaVT" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="MaVT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__MaUR__5165187F">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="IdRole" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="TimDocGia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ten" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="TimNgonNgu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ten" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="TimNhanVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ten" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="TimNXB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ten" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="TimSach" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ten" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="TimTacGia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ten" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="TimTheLoai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ten" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="TimUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <EntityContainer Name="QLThuVienModelStoreContainer">
+    <EntitySet Name="CTPhieuMuon" EntityType="Self.CTPhieuMuon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocGia" EntityType="Self.DocGia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NgonNgu" EntityType="Self.NgonNgu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NXB" EntityType="Self.NXB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhieuMuon" EntityType="Self.PhieuMuon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhieuTra" EntityType="Self.PhieuTra" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sach" EntityType="Self.Sach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TacGia" EntityType="Self.TacGia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThamSo" EntityType="Self.ThamSo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TheLoai" EntityType="Self.TheLoai" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ViTri" EntityType="Self.ViTri" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CTPhieuMu__MaSac__2BFE89A6" Association="Self.FK__CTPhieuMu__MaSac__2BFE89A6">
+      <End Role="Sach" EntitySet="Sach" />
+      <End Role="CTPhieuMuon" EntitySet="CTPhieuMuon" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CTPhieuMuo__MaNV__2CF2ADDF" Association="Self.FK__CTPhieuMuo__MaNV__2CF2ADDF">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="CTPhieuMuon" EntitySet="CTPhieuMuon" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CTPhieuMuon__2B0A656D" Association="Self.FK__CTPhieuMuon__2B0A656D">
+      <End Role="PhieuMuon" EntitySet="PhieuMuon" />
+      <End Role="CTPhieuMuon" EntitySet="CTPhieuMuon" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhieuMuon__MaDG__01142BA1" Association="Self.FK__PhieuMuon__MaDG__01142BA1">
+      <End Role="DocGia" EntitySet="DocGia" />
+      <End Role="PhieuMuon" EntitySet="PhieuMuon" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhieuMuon__MaNV__02084FDA" Association="Self.FK__PhieuMuon__MaNV__02084FDA">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="PhieuMuon" EntitySet="PhieuMuon" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhieuTra__0A9D95DB" Association="Self.FK__PhieuTra__0A9D95DB">
+      <End Role="PhieuMuon" EntitySet="PhieuMuon" />
+      <End Role="PhieuTra" EntitySet="PhieuTra" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhieuTra__MaNV__0B91BA14" Association="Self.FK__PhieuTra__MaNV__0B91BA14">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="PhieuTra" EntitySet="PhieuTra" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhieuTra__MaSach__0C85DE4D" Association="Self.FK__PhieuTra__MaSach__0C85DE4D">
+      <End Role="Sach" EntitySet="Sach" />
+      <End Role="PhieuTra" EntitySet="PhieuTra" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sach__MaNN__2B3F6F97" Association="Self.FK__Sach__MaNN__2B3F6F97">
+      <End Role="NgonNgu" EntitySet="NgonNgu" />
+      <End Role="Sach" EntitySet="Sach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sach__MaNXB__2E1BDC42" Association="Self.FK__Sach__MaNXB__2E1BDC42">
+      <End Role="NXB" EntitySet="NXB" />
+      <End Role="Sach" EntitySet="Sach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sach__MaTG__2D27B809" Association="Self.FK__Sach__MaTG__2D27B809">
+      <End Role="TacGia" EntitySet="TacGia" />
+      <End Role="Sach" EntitySet="Sach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sach__MaTL__2A4B4B5E" Association="Self.FK__Sach__MaTL__2A4B4B5E">
+      <End Role="TheLoai" EntitySet="TheLoai" />
+      <End Role="Sach" EntitySet="Sach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sach__MaVT__2C3393D0" Association="Self.FK__Sach__MaVT__2C3393D0">
+      <End Role="ViTri" EntitySet="ViTri" />
+      <End Role="Sach" EntitySet="Sach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__MaUR__5165187F" Association="Self.FK__Users__MaUR__5165187F">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

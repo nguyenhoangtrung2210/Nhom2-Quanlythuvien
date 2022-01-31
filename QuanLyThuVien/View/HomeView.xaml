@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="QuanLyThuVien.View.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyThuVien.View"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewModel="clr-namespace:QuanLyThuVien.ViewModel"
+             mc:Ignorable="d" 
+             
+             Name="window"
+             DataContext="{StaticResource HomeVM}"
+             d:DesignHeight="800" d:DesignWidth="1300"
+             Background="White">
+    <StackPanel Width="auto">
+        <TextBlock Text="Home"
+                   Foreground="#27408B"
+                   FontSize="28"
+                   HorizontalAlignment="Left"
+                   Margin="30,0,0,20"/>
+
+        <ListView ItemsSource="{Binding List}" 
+                          SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}"
+                          Foreground="Black" Margin="12,10,0,-10" HorizontalAlignment="Left" Width="1281" Height="713" VerticalAlignment="Top">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Mã sách" DisplayMemberBinding="{Binding MaSach}" Width="117"/>
+                    <GridViewColumn Header="Tên Sách" DisplayMemberBinding="{Binding TenSach}" Width="117"/>
+                    <GridViewColumn Header="Nội dung" DisplayMemberBinding="{Binding NoiDung}" Width="119"/>
+                    <GridViewColumn Header="Thể loại" DisplayMemberBinding="{Binding TheLoai.TenTL}" Width="115"/>
+                    <GridViewColumn Header="Vị Trí" DisplayMemberBinding="{Binding ViTri.TenNgan}" Width="110"/>
+                    <GridViewColumn Header="Tác Giả" DisplayMemberBinding="{Binding TacGia.TenTG}" Width="115"/>
+                    <GridViewColumn Header="NXB" DisplayMemberBinding="{Binding NXB.TenNXB}" Width="125"/>
+                    <GridViewColumn Header="Năm XB" DisplayMemberBinding="{Binding NamXB}" Width="112"/>
+                    <GridViewColumn Header="Ngôn ngữ" DisplayMemberBinding="{Binding NgonNgu.TenNN}" Width="127"/>
+                    <GridViewColumn Header="Số Trang" DisplayMemberBinding="{Binding SoTrang}" Width="115"/>
+                    <GridViewColumn Header="Số Lượng" DisplayMemberBinding="{Binding SoLuong}" Width="120"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
+</UserControl>

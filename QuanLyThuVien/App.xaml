@@ -1,0 +1,76 @@
+﻿<Application x:Class="QuanLyThuVien.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:QuanLyThuVien"
+             xmlns:viewModel="clr-namespace:QuanLyThuVien.ViewModel"
+             xmlns:view="clr-namespace:QuanLyThuVien.View"
+             
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Red.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+                <ResourceDictionary Source="ResourceXAML/MainResource.xaml" />
+                <ResourceDictionary Source="ResourceXAML/MenuButtonTheme.xaml" />
+                <ResourceDictionary Source="ResourceXAML/TextboxTheme.xaml" />
+                
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:BookManagerViewModel}">
+                <view:BookManager/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:CustomerViewModel}">
+                <view:CustomerView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:StaffViewModel}">
+                <view:StaffView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:InputManagerViewModel}">
+                <view:InputManager/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:OutputManagerViewModel}">
+                <view:OutputManager/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:UserViewModel}">
+                <view:UserView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:AuthorViewModel}">
+                <view:Author/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:CategoryViewModel}">
+                <view:Category/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:LanguageViewModel}">
+                <view:Language/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:LocationViewModel}">
+                <view:Location/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:NXBViewModel}">
+                <view:NXB/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:BookViewModel}">
+                <view:Book/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

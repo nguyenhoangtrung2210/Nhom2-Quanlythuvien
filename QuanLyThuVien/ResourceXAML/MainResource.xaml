@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewmodel="clr-namespace:QuanLyThuVien.ViewModel">
+
+
+    <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
+    <viewmodel:HomeViewModel x:Key="HomeVM"></viewmodel:HomeViewModel>
+    <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
+    <viewmodel:StaffViewModel x:Key="StaffVM"></viewmodel:StaffViewModel>
+    <viewmodel:CustomerViewModel x:Key="CustomerVM"></viewmodel:CustomerViewModel>
+    <viewmodel:InputManagerViewModel x:Key="InputManagerVM"></viewmodel:InputManagerViewModel>
+    <viewmodel:OutputManagerViewModel x:Key="OutputManagerVM"></viewmodel:OutputManagerViewModel>
+    <viewmodel:BookManagerViewModel x:Key="BookManagerVM"></viewmodel:BookManagerViewModel>
+    <viewmodel:AuthorViewModel x:Key="AuthorVM"></viewmodel:AuthorViewModel>
+    <viewmodel:CategoryViewModel x:Key="CategoryVM"></viewmodel:CategoryViewModel>
+    <viewmodel:LanguageViewModel x:Key="LanguageVM"></viewmodel:LanguageViewModel>
+    <viewmodel:LocationViewModel x:Key="LocationVM"></viewmodel:LocationViewModel>
+    <viewmodel:NXBViewModel x:Key="NXBVM"></viewmodel:NXBViewModel>
+    <viewmodel:BookViewModel x:Key="BookVM"></viewmodel:BookViewModel>
+
+
+</ResourceDictionary>

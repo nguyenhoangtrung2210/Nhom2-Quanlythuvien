@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="QuanLyThuVien.View.OutputManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyThuVien.View"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewModel="clr-namespace:QuanLyThuVien.ViewModel"
+             mc:Ignorable="d" 
+             
+             Name="window"
+             DataContext="{StaticResource OutputManagerVM}"
+             d:DesignHeight="800" d:DesignWidth="1300"
+             Background="White">
+    <StackPanel Width="auto">
+        <TextBlock Text="Phiếu trả"
+                   Foreground="#27408B"
+                   FontSize="28"
+                   HorizontalAlignment="Left"
+                   Margin="30,0,0,20"/>
+        
+        <WrapPanel Margin="84,0,-84,10">
+            <TextBox Text="{Binding MaPT, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã phiếu trả" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="150"/>
+            <ComboBox Margin="5 5 15 5"  DisplayMemberPath="MaPM" ItemsSource="{Binding PhieuMuon}" SelectedItem="{Binding SelectedPhieuMuon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã phiếu mượn" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="150"/>
+            <ComboBox Margin="5 5 15 5"  DisplayMemberPath="TenSach" ItemsSource="{Binding Sach}" SelectedItem="{Binding SelectedSach, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Tên Sách" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="150"/>
+            <ComboBox Margin="5 5 15 5"  DisplayMemberPath="TenNV" ItemsSource="{Binding NhanVien}" SelectedItem="{Binding SelectedNhanVien, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Tên nhân viên" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="150"/>
+            <ComboBox Margin="5 5 15 5"  DisplayMemberPath="NgayMuon" ItemsSource="{Binding PhieuMuon}" SelectedItem="{Binding SelectedNgayMuon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Ngày mượn" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="150"/>
+            <TextBox Text="{Binding NgayTra, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Ngày trả" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="150" />
+            <TextBox Text="{Binding PhatHuHong, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Phạt hư hỏng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="150" />
+            <TextBox Text="{Binding PhatQuaHan, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Phạt quá hạn" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="150" />
+            <TextBox Text="{Binding ThanhToan, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Thanh toán" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="150" />
+        </WrapPanel>
+        
+        <StackPanel Orientation="Horizontal">
+
+            <Grid Margin="0 0 0 35">
+                <WrapPanel Margin="338,16,-338.2,-15.4">
+                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Background="#27408B" BorderBrush="White" Width="200"/>
+                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Background="#27408B" BorderBrush="White" Width="200"/>
+                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Background="#27408B" BorderBrush="White" Width="200"/>
+                </WrapPanel>
+            </Grid>
+
+        </StackPanel>
+
+        <materialDesign:Card Grid.Row="0" 
+                             Margin="-15" 
+                             VerticalAlignment="Stretch"
+                             Background="Transparent">
+            <ListView ItemsSource="{Binding List}" 
+                      SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}"
+                      Foreground="Black" FontSize="14" BorderBrush="#89FFFEFE" Margin="46,0,-46.6,0.4">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Mã Trả" DisplayMemberBinding="{Binding MaPT}" Width="120"/>
+                        <GridViewColumn Header="Mã Mượn" DisplayMemberBinding="{Binding MaPM}" Width="130"/>
+                        <GridViewColumn Header="Sách" DisplayMemberBinding="{Binding Sach.TenSach}" Width="120"/>
+                        <GridViewColumn Header="Nhân viên" DisplayMemberBinding="{Binding NhanVien.TenNV}" Width="130"/>
+                        <GridViewColumn Header="Ngày mượn" DisplayMemberBinding="{Binding NgayMuon}" Width="140"/>
+                        <GridViewColumn Header="Ngày trả" DisplayMemberBinding="{Binding NgayTra}" Width="120"/>
+                        <GridViewColumn Header="Phạt hư hỏng" DisplayMemberBinding="{Binding PhatHuHong}" Width="160"/>
+                        <GridViewColumn Header="Phạt quá hạn" DisplayMemberBinding="{Binding PhatQuaHan}" Width="160"/>
+                        <GridViewColumn Header="Thanh toán" DisplayMemberBinding="{Binding ThanhToan}" Width="160"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </materialDesign:Card>
+    </StackPanel>
+</UserControl>

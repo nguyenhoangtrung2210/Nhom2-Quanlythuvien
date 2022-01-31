@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="QuanLyThuVien.View.Category"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyThuVien.View"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewModel="clr-namespace:QuanLyThuVien.ViewModel"
+             mc:Ignorable="d"
+             
+             Name="window"
+             DataContext="{StaticResource CategoryVM}"
+             d:DesignHeight="800" d:DesignWidth="1300"
+             Background="White">
+    <StackPanel Width="auto" Margin="2,0,-2,0">
+        <TextBlock Text="Thể loại"
+                   Foreground="#27408B"
+                   FontSize="28"
+                   HorizontalAlignment="Left"
+                   Margin="30,0,0,20"/>
+
+        <WrapPanel Margin="476,0,-476,10">
+            <TextBox Text="{Binding MaTL, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã thể loại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="150"/>
+            <TextBox Text="{Binding TenTL, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên thể loại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="150" />
+        </WrapPanel>
+
+        <Grid Margin="0 0 0 35">
+            <WrapPanel Margin="336,13,-337,-12.4">
+                <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Background="#27408B" BorderBrush="White" Width="200"/>
+                <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Background="#27408B" BorderBrush="White" Width="200"/>
+                <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Background="#27408B" BorderBrush="White" Width="200"/>
+            </WrapPanel>
+        </Grid>
+
+        <materialDesign:Card Grid.Row="2" 
+                             Margin="50" 
+                             VerticalAlignment="Stretch"
+                             Background="Transparent">
+            <ListView ItemsSource="{Binding List}" 
+                      SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}"
+                      Foreground="Black" FontSize="14" BorderBrush="#89FFFEFE" Margin="350,0,448,0" Height="486">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Mã thể loại" DisplayMemberBinding="{Binding MaTL}" Width="150"/>
+                        <GridViewColumn Header="Tên thể loại" DisplayMemberBinding="{Binding TenTL}" Width="150"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </materialDesign:Card>
+    </StackPanel>
+</UserControl>

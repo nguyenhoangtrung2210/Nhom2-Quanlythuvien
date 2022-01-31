@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="QuanLyThuVien.View.ControlBarUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyThuVien.View"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Name="ucControlBar"
+             mc:Ignorable="d">
+    <Grid>
+        <materialDesign:ColorZone Mode="Custom">
+          
+                <StackPanel DockPanel.Dock="Right" 
+                            Background="Transparent"
+                            Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Margin" Value="2 4 2 4"/>
+
+                            <Setter Property="Width" Value="40"/>
+                        </Style>
+                    </StackPanel.Resources>
+
+                    <Button Command="{Binding MinimizeWindowCommand}"
+                            CommandParameter="{Binding ElementName=ucControlBar}"
+                            BorderBrush="Transparent"
+                            Background="Transparent"
+                            ToolTip="Thu nhỏ"
+                            ToolBar.OverflowMode="AsNeeded"
+                            Content="{materialDesign:PackIcon Kind=WindowMinimize}" />
+
+                    <Button Command="{Binding MaximizeWindowCommand}"
+                            CommandParameter="{Binding ElementName=ucControlBar}"
+                            BorderBrush="Transparent"
+                            Background="Transparent"
+                            ToolTip="phóng to"
+                            ToolBar.OverflowMode="AsNeeded"
+                            Content="{materialDesign:PackIcon Kind=WindowMaximize}" />
+
+                    <Button Command="{Binding CloseWindowCommand}"
+                            CommandParameter="{Binding ElementName=ucControlBar}"
+                            BorderBrush="Transparent"
+                            Background="Transparent"
+                            ToolTip="Close"
+                            ToolBar.OverflowMode="AsNeeded"
+                            Content="{materialDesign:PackIcon Kind=Close}" Click="Button_Click" />
+ 
+
+                </StackPanel>
+
+        </materialDesign:ColorZone>
+    </Grid>
+</UserControl>
